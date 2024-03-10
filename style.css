@@ -44,3 +44,22 @@ body {
     max-width: 100%;
     height: auto;
 }
+
+footer {
+    background-color: rgb(88, 88, 200);
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.name, .email, .github {
+    margin: 0;
+    width: auto;
+}
