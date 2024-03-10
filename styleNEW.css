@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #303030;
+    font-size: 1.2em;
+    font-family: 'Arial', sans-serif; /* Change this to your preferred font */
+}
+
+h1 {
+    color: rgb(88, 88, 200); /* Change the color as needed */
+    font-size: 4em; /* Change the font size as needed */
+}
+
+.welcome {
+    text-align: center;
+    margin-top: 5em;
+    color: #fff;
+    font-size: 1em;
+}
+
+.container {
+display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5em;
+    margin-top: 3em;
+}
+
+.projects-title {
+    width: 80%;
+    background-color: #fff;
+    align-items: center;
+    text-align: center; 
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.box {
+    width: 80%;
+    background-color: rgb(88, 88, 200);
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.text {
+    flex: 1;
+    padding: 20px;
+}
+
+.image {
+    flex: 1;
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+footer {
+    background-color: rgb(88, 88, 200);
+    width: 100%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.name, .email, .github {
+    margin: 0;
+    width: auto;
+}
