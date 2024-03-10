@@ -6,12 +6,12 @@ body {
     flex-direction: column;
     background-color: #303030;
     font-size: 1.2em;
-    font-family: 'Arial', sans-serif; /* Change this to your preferred font */
+    font-family: 'Arial', sans-serif;
 }
 
 h1 {
-    color: rgb(88, 88, 200); /* Change the color as needed */
-    font-size: 4em; /* Change the font size as needed */
+    color: rgb(88, 88, 200);
+    font-size: 4em; 
 }
 
 .welcome {
@@ -47,6 +47,17 @@ display: flex;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+@media (max-width: 1100px) {
+    .box {
+        flex-direction: column; 
+        height: auto;
+    }
+
+    img {
+        height: auto;
+    }
+}
+
 .text {
     flex: 1;
     padding: 20px;
@@ -77,7 +88,9 @@ footer {
     width: 100%;
 }
 
-.name, .email, .github {
+.email, .github {
     margin: 0;
     width: auto;
+    color: #ffffff;
+    text-decoration: none;
 }
