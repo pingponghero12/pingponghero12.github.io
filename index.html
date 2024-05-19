@@ -16,13 +16,16 @@
 
     <div class="box">
         <div class="text">
-        <h2>About me</h2>
-        <p>I'm a student at Wrocław University of Science and Technology. I study Algorithmic Computer Science and Aeronautics and Astronautics. My main fields of interest are external 
-        CFD simulations and writing simulators for physics, mainly theromodynamics and fluid mechanics.</p>
-        <p>Im also a member of PWR in Space student organisation, which concerns itself with design and making of rockets. There I worked on projects concerning simulation of
-        rocket engines and their construction, as well as external CFD simulations of rockets.</p>
-        </p>
-        </div>
+            <h2>About Me</h2>
+            <p>I'm a student at Wrocław University of Science and Technology, where I study Algorithmic Computer Science and Aeronautics and Astronautics.</p>
+            <p>Beyond that, I'm a member of the PWR in Space student organization, focusing on designing and building rockets. My work primarily involves:</p>
+            <ul>
+                <li>Performing CFD simulations in Ansys Fluent and SolidWorks for the R6 rocket and ACS project.</li>
+                <li>Programming simulators for rocket engines.</li>
+                <li>Data analisys using Python.</li>
+            </ul>
+            <p>One of my strengths is the ability to prepare thorough and accurate technical documentation.</p>
+        </div>        
         <div class="image">
         <img src="images/manfredgawlas.jpg" alt="Your Image">
         </div>
@@ -39,14 +42,29 @@
     <div class="box">
         <div class="text">
             <h2>CFD simulaions for Attitude Control System</h2>
-            <h3>Currently working on it.</h3>
+            <h3>Curently researching optimal domain and mesh for 4 parameter study of Sternik 1.5 rocket.</h3>
             <p>I'm currently working in ANSYS to conduct parametric study of forces and torques acting on rocket depending on angles of attack and side slip, as well as independent angles
             of control surfaces. The goal is to find aerodynamic coefficients for rocket which we could insert into our control algorithm.</p>
-            <p>For this project I'm using ANSYS Fluent to conduct simulations. I'm also using Solidworks to prepare geometries for simulations.</p>
-            <p>We already made several partial studies using Solidworks Fluid Simulations, however we couldn't access a computer strong enough to conduct full study.</p>
+            <p>For this project I'm using ANSYS Fluent to conduct simulations. I'm also using Solidworks and Ansys SpaceClaim to prepare geometries for simulations.</p>
+            <p>We already made several partial studies using Solidworks Fluid Simulations and Ansys Fluent, now we are waiting for full Ansys licence to preform full study on computing cluster.</p>
+            <a class="mach" href="https://github.com/PWrInSpace/Aerodynamics-Documentation/blob/main/ACS-CFD/docs/docs.pdf">Documentation of this project on github</a>
         </div>
         <div class="image">
-        <img src="images/ACS.webp" alt="Your Image">
+        <img src="images/ACS.png" alt="Your Image">
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="text">
+            <h2>Technical report for R6</h2>
+            <h3>Currently working on adding results of Ansys Fluent simulations.</h3>
+            <p>This is edited version of Aerodynamics appenix from Technical Report for SPACEPORT AMERICA CUP 2024. It is a part of our Aerodynamics repository on GitHub, on which we try to keep
+            all documentation concerning aerodynamics of our rockets. The content of it is mostly my work.</p>
+            </p>
+            <a class="mach" href="https://github.com/PWrInSpace/Aerodynamics-Documentation/blob/main/R6TR/docs/TR-R6.pdf">Documentation of this project on github</a>
+        </div>
+        <div class="image">
+        <img src="images/TR-R6.png" alt="Your Image">
         </div>
     </div>
 
@@ -67,6 +85,7 @@
     <div class="box">
         <div class="text">
         <h2>Water Rocket Simulator</h2>
+        <h3>I'm working on rewriting it, so it meets standards of OOP.</h3>
         <p>This application simulates simple rocket engine, consisting of chamber with pressurized gas and liquid. Rocket thrust is generated through expulsion of either liquid 
             or gas, caused by the expansion of gas. Users have the flexibility to select from a list of predefined gases or introduce custom ones.</p>
             
@@ -103,14 +122,13 @@
 
     <div class="box">
         <div class="text">
-            <h2>Hybrid Engine Regression</h2>
+            <h2>Analisys of Hybrid Rocket Engine Solvers</h2>
             <h3>Currently working on it.</h3>
-            <p> I'm currently working on a project concerning regression of hybrid rocket engine. The goal is create a tool that determines regression coefficients of fuel,
-                based on geometries and thrust curves which are experimentaly determined.</p>
+            <p> I'm in early process of creating a tool for simulation of Hybrid Rocket Engines, that will be able to preform various analisys on simulation results and will include different solvers to compare
+            them with each other. The goal is to find out which solver is the most accurate and to find out how to improve them.</p>
+            </p>
             
-            <p> For this project first goal is to create a hybrid rocket engine simulator. The program is being written in C++.</p>
-            
-            <a class="HER" href="https://github.com/PWrInSpace/Hybrid-Engine-Regresion">GitHub repository</a>
+            <p>Program is being writen in both Python and Java.</p>
         </div>
         <div class="image">
         <img src="images/HER.png" alt="Your Image">
