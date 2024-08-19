@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F-35 Space Game</title>
+    <style>
+        body {
+            background-color: #303030;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            background-color: #58a9f5;
+            border: 2px solid #fff;
+        }
+        .game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+<div class="game-over" id="gameOver">Game Over<br>Score: <span id="score"></span><br>Press R to Restart</div>
+
+<script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const planeWidth = 64;
+    const planeHeight = 64;
+    let planeY = canvas.height / 4 - planeHeight / 2;
+    let isTop = true;
+    const speed = 3;
+    let score = 0;
+    let gameOver = false;
+    let asteroids = [];
+
+	const planeImg = new Image();
+	planeImg.src = 'pixel_art.png';
+
+
+    function drawPlane() {
+        ctx.drawImage(planeImg, 20, planeY, planeWidth, planeHeight);
+    }
+
+    function drawAsteroid(x, y) {
+        ctx.fillStyle = 'gray';
+        ctx.fillRect(x, y, planeWidth, planeHeight);
+    }
+
+    function generateAsteroid() {
+        const yPos = Math.random() > 0.5 ? canvas.height / 4 - planeHeight / 2 : (3 * canvas.height) / 4 - planeHeight / 2;
+        asteroids.push({ x: canvas.width, y: yPos });
+    }
+
+    function updateAsteroids() {
+        for (let i = 0; i < asteroids.length; i++) {
+            asteroids[i].x -= speed;
+
+            if (asteroids[i].x < 0) {
+                asteroids.splice(i, 1);
+                score++;
+            }
+
+            // Collision detection
+            if (
+                asteroids[i] &&
+                asteroids[i].x < 20 + planeWidth &&
+                asteroids[i].x + planeWidth > 20 &&
+                asteroids[i].y === planeY
+            ) {
+                gameOver = true;
+            }
+        }
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawPlane();
+
+        for (let asteroid of asteroids) {
+            drawAsteroid(asteroid.x, asteroid.y);
+        }
+
+        if (!gameOver) {
+            updateAsteroids();
+            requestAnimationFrame(draw);
+        } else {
+            document.getElementById('gameOver').style.display = 'block';
+            document.getElementById('score').textContent = score;
+        }
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space') {
+            isTop = !isTop;
+            planeY = isTop ? canvas.height / 4 - planeHeight / 2 : (3 * canvas.height) / 4 - planeHeight / 2;
+        } else if (e.code === 'KeyR' && gameOver) {
+            // Restart the game
+            asteroids = [];
+            score = 0;
+            gameOver = false;
+            planeY = canvas.height / 4 - planeHeight / 2;
+            document.getElementById('gameOver').style.display = 'none';
+            draw();
+        }
+    });
+
+    setInterval(generateAsteroid, 1000);
+
+    draw();
+</script>
+
+</body>
+</html>
+
