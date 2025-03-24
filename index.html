@@ -20,25 +20,29 @@
     </nav>
 </header>
 
-<div class="welcome">
-    <h1>SALUT</h1>
-    <p>Welcome to Manfred Gawlas's site. Here you can find information about me and about my projects. Ready for hardcore?</p>
-</div>
+<main>
+    <section class="welcome">
+        <h1>SALUT</h1>
+        <p>Welcome to Manfred Gawlas's site. Here you can find information about me and about my projects. Ready for hardcore?</p>
+    </section>
 
-<div class="container">
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>About Me</h2>
             <p>I'm passionate about C++, Nix, Linux and functional programming. Space enthusiast. I'm an active member of PWr in Space scientific association, where I work on embedded systems and physical simulations.</p>
             
             <p><a href="about.html">Learn more about me</a></p>
         </div>        
-        <div class="image">
-            <img src="images/manfredgawlas.jpg" alt="Manfred Gawlas">
-        </div>
-    </div>
+        <figure class="image">
+            <img src="images/manfredgawlas.jpg" 
+                 alt="Manfred Gawlas"
+                 srcset="small-images/manfredgawlas-small.jpg 300w,
+                         images/manfredgawlas.jpg"
+                 sizes="(max-width: 768px) 100vw, 100vw">
+        </figure>
+    </article>
 
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>Featured Projects</h2>
             <p>Here's a preview of some of the projects I've been working on:</p>
@@ -49,11 +53,15 @@
             </ul>
             <p><a href="projects.html">See all my projects</a></p>
         </div>
-        <div class="image">
-            <img src="images/HER.png" alt="Rocket Engine Simulation">
-        </div>
-    </div>
-</div>
+        <figure class="image">
+            <img src="images/HER.png" 
+                 alt="Rocket Engine Simulation"
+                 srcset="small-images/HER-small.png 300w,
+                         images/HER.png 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
+</main>
 
 <footer>
     <div class="footer-content">

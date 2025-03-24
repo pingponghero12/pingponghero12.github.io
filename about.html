@@ -20,26 +20,28 @@
     </nav>
 </header>
 
-<div class="welcome">
-    <h1>About Me</h1>
-</div>
+<main>
+    <section class="welcome">
+        <h1>About Me</h1>
+    </section>
 
-<div class="container">
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>Manfred Gawlas</h2>
             <p>I'm passionate about C++, Nix, Linux and functional programming. Space enthusiast. I'm an active member of PWr in Space scientific association, where I work on embedded systems and physical simulations.</p>
             
             <p>I have internship at European Space Agency.</p>
-            
-            
         </div>        
-        <div class="image">
-            <img src="images/manfredgawlas.jpg" alt="Manfred Gawlas">
-        </div>
-    </div>
+        <figure class="image">
+            <img src="images/manfredgawlas.jpg" 
+                 alt="Manfred Gawlas"
+                 srcset="small-images/manfredgawlas-small.jpg 300w,
+                         images/manfredgawlas.jpg 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
     
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>Skills & Achievements</h2>
             
@@ -61,11 +63,15 @@
             </ul>
             <p>Me and my team at IAC2024</p>
         </div>
-        <div class="image">
-            <img src="images/IACFR.png" alt="CFD Simulation">
-        </div>
-    </div>
-</div>
+        <figure class="image">
+            <img src="images/IACFR.png" 
+                 alt="Team at IAC2024"
+                 srcset="small-images/IACFR-small.png 300w,
+                         images/IACFR.png 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
+</main>
 
 <footer>
     <div class="footer-content">

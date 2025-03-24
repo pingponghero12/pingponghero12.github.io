@@ -20,12 +20,12 @@
     </nav>
 </header>
 
-<div class="welcome">
-    <h1>Computer Science Interests</h1>
-</div>
+<main>
+    <section class="welcome">
+        <h1>Computer Science Interests</h1>
+    </section>
 
-<div class="container">
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>High-Performance Computing & Optimization</h2>
             <p>I'm deeply interested in high-performance computing, particularly C++ optimizations that push hardware to its limits. My interests include:</p>
@@ -37,12 +37,16 @@
             </ul>
             <p>Through my physics simulator project, I've explored techniques for maximizing computational efficiency while maintaining numerical accuracy.</p>
         </div>
-        <div class="image">
-            <img src="images/pressure_diagnostics.png" alt="High Performance Computing">
-        </div>
-    </div>
+        <figure class="image">
+            <img src="images/pressure_diagnostics.png" 
+                 alt="High Performance Computing"
+                 srcset="small-images/pressure_diagnostics-small.png 300w,
+                         images/pressure_diagnostics.png 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
     
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>Embedded Systems & Real-time Computing</h2>
             <p>I'm fascinated by embedded systems programming, especially in mission-critical applications like rocket control systems. My focus areas include:</p>
@@ -54,17 +58,20 @@
             </ul>
             <p>I enjoy the challenge of creating reliable software that must operate within strict timing and resource constraints.</p>
         </div>
-        <div class="image">
-            <img src="images/RSM2.png" alt="Embedded Systems">
-        </div>
-    </div>
+        <figure class="image">
+            <img src="images/RSM2.png" 
+                 alt="Embedded Systems"
+                 srcset="small-images/RSM2-small.png 300w,
+                         images/RSM2.png 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
 
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>Favourite code snippet</h2>
             <p>I love CPP. Cpp reference my beloved. But without this script that I wrote I would die.</p>
-            <pre><code>
-#!/bin/sh
+            <pre><code>#!/bin/sh
 
 set -e
 
@@ -83,15 +90,19 @@ if [[ $1 != "-v" ]]; then
     fi
 else
     nvim /etc/nixos/
-fi
-        </code></pre>
+fi</code></pre>
+            <button class="copy-button" onclick="copyCodeToClipboard(this)">Copy</button>
         </div>
-        <div class="image">
-            <img src="images/cppreference.png" alt="Embedded Systems">
-        </div>
-    </div>
+        <figure class="image">
+            <img src="images/cppreference.png" 
+                 alt="C++ Reference"
+                 srcset="small-images/cppreference-small.png 300w,
+                         images/cppreference.png 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
 
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>Competitive Programming</h2>
             <p>I regularly participate in competitive programming on platforms like Codeforces. This hobby has helped me sharpen my skills in:</p>
@@ -103,19 +114,36 @@ fi
             </ul>
             <p>My experience includes participating in the AMPPZ (Polish ICPC), where my team finished in the top 50%.</p>
         </div>
-        <div class="image">
-            <img src="images/amppz.jpg" alt="Competitive Programming">
-        </div>
-    </div>
-</div>
-
+        <figure class="image">
+            <img src="images/amppz.jpg" 
+                 alt="Competitive Programming"
+                 srcset="small-images/amppz-small.jpg 300w,
+                         images/amppz.jpg 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
+</main>
 
 <footer>
     <div class="footer-content">
         <a class="github" href="https://github.com/pingponghero12">GitHub</a>
     </div>
-
 </footer>
+
+<script>
+function copyCodeToClipboard(button) {
+    const pre = button.parentElement;
+    const code = pre.querySelector('code');
+    const text = code.innerText;
+    
+    navigator.clipboard.writeText(text).then(() => {
+        button.textContent = 'Copied!';
+        setTimeout(() => {
+            button.textContent = 'Copy';
+        }, 2000);
+    });
+}
+</script>
 
 </body>
 </html>

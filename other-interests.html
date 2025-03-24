@@ -20,12 +20,12 @@
     </nav>
 </header>
 
-<div class="welcome">
-    <h1>Other Interests</h1>
-</div>
+<main>
+    <section class="welcome">
+        <h1>Other Interests</h1>
+    </section>
 
-<div class="container">
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>Aerospace Engineering & Rocketry</h2>
             <p>As a space enthusiast, I'm deeply passionate about aerospace engineering and rocketry. My involvement with PWr in Space has allowed me to contribute to real rocket projects and deepen my understanding of:</p>
@@ -37,12 +37,15 @@
             </ul>
             <p>I'm particularly interested in how computational methods can improve our understanding of aerospace phenomena and advance space technology.</p>
         </div>
-        <div class="image">
-            <img src="images/TR-R6.png" alt="Rocket Project">
-        </div>
-    </div>
-    
-</div>
+        <figure class="image">
+            <img src="images/TR-R6.png" 
+                 alt="Rocket Project"
+                 srcset="small-images/TR-R6-small.png 300w,
+                         images/TR-R6.png 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
+</main>
 
 <footer>
     <div class="footer-content">

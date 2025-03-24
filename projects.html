@@ -20,55 +20,71 @@
     </nav>
 </header>
 
-<div class="welcome">
-    <h1>My Projects</h1>
-</div>
+<main>
+    <section class="welcome">
+        <h1>My Projects</h1>
+    </section>
 
-<div class="container">
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>Multi-threaded C++ Physics Simulator</h2>
             <p>Developed a high-performance, multi-threaded C++ physics simulator for granular gas dynamics. The project focuses on optimized code for complex physical simulations.</p>
             <p>This work will be presented at IAC 2025, showcasing the application of advanced computing techniques to aerospace physics problems.</p>
         </div>
-        <div class="image">
-            <img src="images/HER.png" alt="Physics Simulator">
-        </div>
-    </div>
+        <figure class="image">
+            <img src="images/HER.png" 
+                 alt="Physics Simulator"
+                 srcset="small-images/HER-small.png 300w,
+                         images/HER.png 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
     
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>Rocket Control System Firmware</h2>
             <p>Developed embedded firmware for a real-time multithread rocket control system, integrating sensor data processing and control using FreeRTOS and ESP-IDF.</p>
             <p>This project involved implementing robust control algorithms and optimizing for the resource constraints of embedded systems.</p>
         </div>
-        <div class="image">
-            <img src="images/ACS.png" alt="Control System Firmware">
-        </div>
-    </div>
+        <figure class="image">
+            <img src="images/ACS.png" 
+                 alt="Control System Firmware"
+                 srcset="small-images/ACS-small.png 300w,
+                         images/ACS.png 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
 
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>Aerodynamic Simulation Analysis</h2>
             <p>Performed, analyzed, and helped develop interpolation algorithms for aerodynamic simulations of rockets using Pandas, Matplotlib, TensorFlow and Ansys.</p>
             <p>Co-authored research on compression lift analysis for the SpaceCab project, applying computational methods to understand complex aerodynamic phenomena.</p>
         </div>
-        <div class="image">
-            <img src="images/TR-R6.png" alt="Aerodynamic Simulation">
-        </div>
-    </div>
+        <figure class="image">
+            <img src="images/TR-R6.png" 
+                 alt="Aerodynamic Simulation"
+                 srcset="small-images/TR-R6-small.png 300w,
+                         images/TR-R6.png 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
 
-    <div class="box">
+    <article class="box">
         <div class="text">
             <h2>Drag Coefficient Study</h2>
             <p>Conducted a study of drag coefficient as a function of Mach number for a rocket model. Results were compared with experimental data from Modern Exterior Ballistics and with results from other simulations.</p>
             <p>The goal was to evaluate the accuracy of simulation results and generate a comprehensive drag coefficient graph for specific rocket designs.</p>
         </div>
-        <div class="image">
-            <img src="images/mach.png" alt="Drag Coefficient Study">
-        </div>
-    </div>
-</div>
+        <figure class="image">
+            <img src="images/mach.png" 
+                 alt="Drag Coefficient Study"
+                 srcset="small-images/mach-small.png 300w,
+                         images/mach.png 800w"
+                 sizes="(max-width: 768px) 100vw, 40vw">
+        </figure>
+    </article>
+</main>
 
 <footer>
     <div class="footer-content">
