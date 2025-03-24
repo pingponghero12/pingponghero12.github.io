@@ -38,7 +38,7 @@
             <p>Through my physics simulator project, I've explored techniques for maximizing computational efficiency while maintaining numerical accuracy.</p>
         </div>
         <div class="image">
-            <img src="images/ACS.png" alt="High Performance Computing">
+            <img src="images/pressure_diagnostics.png" alt="High Performance Computing">
         </div>
     </div>
     
@@ -62,15 +62,28 @@
     <div class="box">
         <div class="text">
             <h2>Favourite code snippet</h2>
-            <p>I love CPP. Cpp reference my beloved.</p>
+            <p>I love CPP. Cpp reference my beloved. But without this script that I wrote I would die.</p>
             <pre><code>
-// optional can be used as the return type of a factory that may fail
-std::optional<std::string> create(bool b)
-{
-    if (b)
-        return "Godzilla";
-    return {};
-}
+#!/bin/sh
+
+set -e
+
+if [[ $1 != "-v" ]]; then
+    sudo nvim /etc/nixos/
+    cd ~/.config/nixos-config
+    cp ~/.config/nvim/init.lua ./nvim
+
+    if sudo nixos-rebuild switch --flake /etc/nixos#hostname; then
+        sudo rm -rf ./nixos
+        sudo cp -r /etc/nixos ./
+
+        git add -A
+        git commit -m "Hello"
+        git push origin main
+    fi
+else
+    nvim /etc/nixos/
+fi
         </code></pre>
         </div>
         <div class="image">

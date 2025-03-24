@@ -145,3 +145,9 @@ footer {
     color: #ffffff;
     text-decoration: none;
 }
+
+pre {
+  background-color: #1e1e1e;
+  overflow-x: auto; /* Allows horizontal scrolling on small screens */
+  white-space: pre-wrap; /* Preserves formatting but allows wrapping */
+}
