@@ -14,40 +14,34 @@ h1 {
     font-size: 4em; 
 }
 
-#gameContainer {
-    width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    background-color: #303030;
-    border: 2px solid #fff;
-}        
-#gameCanvas {
-    background-color: #58a9f5;
-    border: 2px solid #fff;
-}
-.game-container {
-    position: relative;
-    display: inline-block; /* Ensures that the game and messages stay together */
-}
-.game-over {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    display: none; /* Hidden by default */
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.1); /* Slightly transparent black background */
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid white;
-}
-.score {
-    margin-top: 20px;
-    font-size: 20px;
+/* Header and Navigation */
+header {
+    width: 100%;
+    background-color: rgb(88, 88, 200);
+    padding: 1em 0;
+    margin-bottom: 2em;
 }
 
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 2em;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-menu li a:hover, .nav-menu li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
 
 .welcome {
     text-align: center;
@@ -57,7 +51,7 @@ h1 {
 }
 
 .container {
-display: flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 5em;
@@ -96,6 +90,12 @@ display: flex;
     img {
         height: auto;
     }
+    
+    .nav-menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5em;
+    }
 }
 
 .text {
@@ -114,21 +114,32 @@ img {
     display: block;
 }
 
+pre {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: monospace;
+    margin: 15px 0;
+}
+
 footer {
     background-color: rgb(88, 88, 200);
     width: 100%;
     padding-top: 1em;
     padding-bottom: 1em;
+    margin-top: 3em;
 }
 
 .footer-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-.email, .github {
+.github {
     margin: 0;
     width: auto;
     color: #ffffff;

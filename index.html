@@ -3,266 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manfred Gawlas - Portfolio</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
+<header>
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="cs-interests.html">CS Interests</a></li>
+            <li><a href="other-interests.html">Other Interests</a></li>
+        </ul>
+    </nav>
+</header>
 
 <div class="welcome">
     <h1>SALUT</h1>
     <p>Welcome to Manfred Gawlas's site. Here you can find information about me and about my projects. Ready for hardcore?</p>
 </div>
 
-<div id="gameContainer">
-    <canvas id="gameCanvas" width="800" height="600"></canvas>
-    <div class="game-over" id="gameOver">Game Over<br>Score: <span id="score"></span><br>Press R to Restart</div>
-    <div class="score" id="scoreDisplay">Score: 0</div>
-</div>
-
 <div class="container">
-
     <div class="box">
         <div class="text">
             <h2>About Me</h2>
-            <p>I'm a student at Wrocław University of Science and Technology, where I study Algorithmic Computer Science and Aeronautics and Astronautics.</p>
-            <p>Beyond that, I'm a member of the PWR in Space student organization, focusing on designing and building rockets. My work primarily involves:</p>
-            <ul>
-                <li>Programming simulators for rocket engines.</li>
-                <li>Performing CFD simulations in Ansys Fluent and SolidWorks for the R6 rocket and ACS project.</li>
-            </ul>
-            <p>One of my strengths is the ability to prepare thorough and accurate technical documentation.</p>
+            <p>I'm passionate about C++, Nix, Linux and functional programming. Space enthusiast. I'm an active member of PWr in Space scientific association, where I work on embedded systems and physical simulations.</p>
+            
+            <p><a href="about.html">Learn more about me</a></p>
         </div>        
         <div class="image">
-        <img src="images/manfredgawlas.jpg" alt="Your Image">
+            <img src="images/manfredgawlas.jpg" alt="Manfred Gawlas">
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="text">
+            <h2>Featured Projects</h2>
+            <p>Here's a preview of some of the projects I've been working on:</p>
+            <ul>
+                <li>Multi-threaded C++ physics simulator for granular gas dynamics</li>
+                <li>Embedded firmware for real-time rocket control systems</li>
+                <li>Aerodynamic simulations and analysis</li>
+            </ul>
+            <p><a href="projects.html">See all my projects</a></p>
+        </div>
+        <div class="image">
+            <img src="images/HER.png" alt="Rocket Engine Simulation">
         </div>
     </div>
 </div>
 
-
-<div class="welcome">
-    <h1> My Projects</h1>
-</div>
-
-<div class="container">
-
-    <div class="box">
-        <div class="text">
-            <h2>Rocket Engine Simulation Platform</h2>
-            <h3>Currently working on it.</h3>
-            <p> I'm in process of creating a tool for Rocket Engines, that will be able to preform various analisys on simulation results and will include different solvers to compare
-            them with each other. The goal is easy to use tool for rocket engine enginers, that will help with much needed simulations as well as research on accurate simulation solvers.</p>
-            
-            <p>Program is being writen in Python with usage of TKinter and Matplotlib.</p>
-            
-            <a href="https://github.com/PWrInSpace/Rocket-Engine-Simulation-Platform">Github repository</a>
-        </div>
-        <div class="image">
-        <img src="images/HER.png" alt="Your Image">
-        </div>
+<footer>
+    <div class="footer-content">
+        <a class="github" href="https://github.com/pingponghero12">GitHub</a>
     </div>
-    
-    <div class="box">
-        <div class="text">
-            <h2>CFD simulaions for Attitude Control System</h2>
-            <h3>Curently researching optimal domain and mesh for 4 parameter study of Sternik 1.5 rocket.</h3>
-            <p>I'm currently working in ANSYS to conduct parametric study of forces and torques acting on rocket depending on angles of attack and side slip, as well as independent angles
-            of control surfaces. The goal is to find aerodynamic coefficients for rocket which we could insert into our control algorithm.</p>
-            <p>For this project I'm using ANSYS Fluent to conduct simulations. I'm also using Solidworks and Ansys SpaceClaim to prepare geometries for simulations.</p>
-            <p>We already made several partial studies using Solidworks Fluid Simulations and Ansys Fluent, now we are waiting for full Ansys licence to preform full study on computing cluster.</p>
-            <a class="mach" href="https://github.com/PWrInSpace/Aerodynamics-Documentation/blob/main/ACS-CFD/docs/docs.pdf">Documentation of this project on github</a>
-        </div>
-        <div class="image">
-        <img src="images/ACS.png" alt="Your Image">
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="text">
-            <h2>Technical report for R6</h2>
-            <h3>Currently working on adding results of Ansys Fluent simulations.</h3>
-            <p>This is edited version of Aerodynamics appenix from Technical Report for SPACEPORT AMERICA CUP 2024. It is a part of our Aerodynamics repository on GitHub, on which we try to keep
-            all documentation concerning aerodynamics of our rockets. The content of it is mostly my work.</p>
-            </p>
-            <a class="mach" href="https://github.com/PWrInSpace/Aerodynamics-Documentation/blob/main/R6TR/docs/TR-R6.pdf">Documentation of this project on github</a>
-        </div>
-        <div class="image">
-        <img src="images/TR-R6.png" alt="Your Image">
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="text">
-        <h2>Drag Coefficient Study</h2>
-        <p>I conducted a study of drag coefficient as a function of Mach number for a rocket model that I created based on PWR is Space's R5 rocket. Results were compared
-        with experimental data from Modern Exterior Ballistics and with results from other simulations. The goal was to find out how accurate are the results of simulations 
-        were and to find graph for this rocket's drag coefficient.</p>
-        </p>
-        <a class="mach" href="https://github.com/pingponghero12/CdStudyForR5/blob/main/documentation/doc.pdf">Documentation of this project on github</a>
-        </div>
-        <div class="image">
-        <img src="images/mach.png" alt="Your Image">
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="text">
-        <h2>Water Rocket Simulator</h2>
-        <h3>Needs to be rewriten to object form.</h3>
-        <p>This application simulates simple rocket engine, consisting of chamber with pressurized gas and liquid. Rocket thrust is generated through expulsion of either liquid 
-            or gas, caused by the expansion of gas. Users have the flexibility to select from a list of predefined gases or introduce custom ones.</p>
-            
-        <p>Beyond individual simulations, the program offers a feature allowing users to visualize plots depicting output values against varying input parameters.</p>
-
-        <a class="WRS" href="https://github.com/pingponghero12/Water-rocket-simulator">GitHub repository</a>
-        </div>
-        <div class="image">
-        <img src="https://github.com/pingponghero12/Water-rocket-simulator/blob/main/images/example1.png?raw=true" alt="Your Image">
-        </div>
-    </div>
-
-    <div class="box">
-        <div class="text">
-        <h2>RMS2</h2>
-        <p>
-            RSM2 is a simulator of a stable fuel rocket engines for BATES geometries. The program allows users to get graphs of pressure, thrust as well as values of impulse and time of burning.
-        </p>
-            
-        <p> Program is writen in python with usage of matplotlib.</p>
-            
-        <p>To learn more about project I reccomend you refer to repository and to documentation</p>
-
-        <a class="WRS" href="https://github.com/pingponghero12/RMS2">GitHub repository</a>
-        <a class="WRSdoc" href="https://github.com/pingponghero12/RMS2/blob/main/docs/doc.pdf"> Documentation of simulator</a>
-        </div>
-        <div class="image">
-        <img src="images/RSM2.png" alt="Your Image">
-        </div>
-    </div>
-
-
-    <footer>
-        <div class="footer-content">
-            <p class="email">manfredgawlas12@gmail.com</p>
-            <a class="github" href="https://github.com/pingponghero12">GitHub</a>
-        </div>
-    </footer>
-
-</div>
-<script>
-    // Game JavaScript Code Here
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
-    const planeWidth = 64;
-    const planeHeight = 64;
-    let planeY = canvas.height / 4 - planeHeight / 2;
-    let isTop = true;
-    let speed = 10;
-    let score = 0;
-    let gameOver = false;
-    let asteroids = [];
-    let asteroidSpawnInterval = 700; // Initial spawn interval
-    let ast1 = 0;
-    let ast2 = 1;
-
-    const planeImg = new Image();
-    planeImg.src = 'pixel_art.png';
-
-    function drawPlane() {
-        ctx.drawImage(planeImg, 20, planeY, planeWidth, planeHeight);
-    }
-
-    function drawAsteroid(x, y) {
-        ctx.fillStyle = 'gray';
-        ctx.fillRect(x, y, planeWidth, planeHeight);
-    }
-
-
-    function generateAsteroid() {
-        let yPos;
-
-        if (ast1 !== ast2) {
-            // Generate a new position randomly
-            yPos = Math.random() > 0.5 ? canvas.height / 4 - planeHeight / 2 : (3 * canvas.height) / 4 - planeHeight / 2;
-        } else {
-            // Force the asteroid to be in the opposite position
-            yPos = ast1 === (canvas.height / 4 - planeHeight / 2) ? (3 * canvas.height) / 4 - planeHeight / 2 : canvas.height / 4 - planeHeight / 2;
-        }
-
-        ast1 = ast2;
-        ast2 = yPos;
-
-        asteroids.push({ x: canvas.width, y: yPos });
-    }
-
-    function updateAsteroids() {
-        for (let i = 0; i < asteroids.length; i++) {
-            asteroids[i].x -= speed;
-
-            if (asteroids[i].x < 0) {
-                asteroids.splice(i, 1);
-                score++;
-                document.getElementById('scoreDisplay').textContent = 'Score: ' + score;
-                
-                // Increase speed and reduce asteroid spawn interval as score increases
-                if (score % 10 === 0) {
-                    speed += 1;
-                    asteroidSpawnInterval = Math.max(300, asteroidSpawnInterval - 100); // Cap the spawn interval at 500ms
-                    clearInterval(asteroidInterval);
-                    asteroidInterval = setInterval(generateAsteroid, asteroidSpawnInterval);
-                }
-            }
-
-            // Collision detection
-            if (
-                asteroids[i] &&
-                asteroids[i].x < 20 + planeWidth &&
-                asteroids[i].x + planeWidth > 20 &&
-                asteroids[i].y === planeY
-            ) {
-                gameOver = true;
-            }
-        }
-    }
-
-    function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawPlane();
-
-        for (let asteroid of asteroids) {
-            drawAsteroid(asteroid.x, asteroid.y);
-        }
-
-        if (!gameOver) {
-            updateAsteroids();
-            requestAnimationFrame(draw);
-        } else {
-            document.getElementById('gameOver').style.display = 'block';
-            document.getElementById('score').textContent = score;
-        }
-    }
-
-    document.addEventListener('keydown', (e) => {
-        if (e.code === 'Space') {
-            event.preventDefault()
-            isTop = !isTop;
-            planeY = isTop ? canvas.height / 4 - planeHeight / 2 : (3 * canvas.height) / 4 - planeHeight / 2;
-        } else if (e.code === 'KeyR' && gameOver) {
-            // Restart the game
-            asteroids = [];
-            score = 0;
-            speed = 3;
-            asteroidSpawnInterval = 1000;
-            gameOver = false;
-            planeY = canvas.height / 4 - planeHeight / 2;
-            document.getElementById('scoreDisplay').textContent = 'Score: 0';
-            document.getElementById('gameOver').style.display = 'none';
-            draw();
-        }
-    });
-
-    let asteroidInterval = setInterval(generateAsteroid, asteroidSpawnInterval);
-
-    draw();
-</script>
+</footer>
 
 </body>
 </html>
