@@ -1,6 +1,5 @@
 .box {
   background-color: $primary-color;
-  border-radius: $border-radius;
   margin-bottom: $spacing-xlarge;
   overflow: hidden;
   @include flex-column;
