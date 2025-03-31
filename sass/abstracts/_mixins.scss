@@ -1,0 +1,34 @@
+// Media query mixins
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Box shadow mixin
+@mixin box-shadow($shadow: $box-shadow) {
+  box-shadow: $shadow;
+}
+
+// Transition mixin
+@mixin transition($property: all, $duration: $transition-speed) {
+  transition: $property $duration;
+}

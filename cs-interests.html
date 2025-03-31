@@ -71,6 +71,9 @@
         <div class="text">
             <h2>Favourite code snippet</h2>
             <p>I love CPP. Cpp reference my beloved. But without this script that I wrote I would die.</p>
+            <button class="copy-button" onclick="copyCodeToClipboard(this)">Copy</button>
+        </div>
+
             <pre><code>#!/bin/sh
 
 set -e
@@ -91,15 +94,6 @@ if [[ $1 != "-v" ]]; then
 else
     nvim /etc/nixos/
 fi</code></pre>
-            <button class="copy-button" onclick="copyCodeToClipboard(this)">Copy</button>
-        </div>
-        <figure class="image">
-            <img src="images/cppreference.png" 
-                 alt="C++ Reference"
-                 srcset="small-images/cppreference-small.png 300w,
-                         images/cppreference.png 800w"
-                 sizes="(max-width: 768px) 100vw, 40vw">
-        </figure>
     </article>
 
     <article class="box">

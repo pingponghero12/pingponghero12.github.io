@@ -1,0 +1,27 @@
+.nav-menu {
+  list-style-type: none;
+  @include flex-column;
+  align-items: center;
+  gap: $spacing-small;
+  background-color: $primary-color;
+  padding: 0;
+  
+  li a {
+    display: block;
+    padding: $spacing-small $spacing-medium;
+    border-radius: $border-radius-small;
+    @include transition(background-color);
+    
+    &:hover, 
+    &.active {
+      background-color: rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+    }
+  }
+  
+  @include tablet {
+    flex-direction: row;
+    justify-content: center;
+    gap: $spacing-medium;
+  }
+}

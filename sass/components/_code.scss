@@ -1,0 +1,15 @@
+pre {
+  background-color: $code-bg;
+  border-radius: $border-radius-small;
+  padding: $spacing-medium;
+  margin: $spacing-medium 0;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  font-family: $code-font-family;
+  position: relative;
+  color: $text-color;
+}
+
+code {
+  font-family: $code-font-family;
+}

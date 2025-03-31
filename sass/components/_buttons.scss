@@ -1,0 +1,26 @@
+%button-base {
+  border: none;
+  border-radius: $border-radius-small;
+  cursor: pointer;
+  @include transition;
+}
+
+.copy-button {
+  @extend %button-base;
+  position: absolute;
+  top: $spacing-small;
+  right: $spacing-small;
+  background-color: $button-bg;
+  color: $text-color;
+  padding: 0.3em 0.6em;
+  font-size: 0.8em;
+  opacity: 0;
+  
+  &:hover {
+    background-color: $button-hover-bg;
+  }
+}
+
+pre:hover .copy-button {
+  opacity: 1;
+}

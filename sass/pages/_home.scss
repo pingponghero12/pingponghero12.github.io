@@ -1,0 +1,55 @@
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 $spacing-medium;
+  
+  @include tablet {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  @include desktop {
+    width: 80%;
+    max-width: 1200px;
+  }
+}
+
+.welcome {
+  text-align: center;
+  margin-bottom: $spacing-xlarge;
+  
+  @include desktop {
+    position: relative;
+  }
+}
+
+@include desktop {
+  h1 {
+    font-size: 3.5em;
+  }
+  
+  ul:not(.nav-menu) {
+    list-style-type: none;
+    
+    li {
+      position: relative;
+      padding-left: $spacing-large;
+      margin-bottom: $spacing-small;
+    }
+  }
+  
+  body {
+    font-size: em(20px);
+  }
+}
+
+@include tablet {
+  body {
+    font-size: em(18px);
+  }
+  
+  h1 {
+    font-size: 3em;
+  }
+}

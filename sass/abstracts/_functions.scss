@@ -1,0 +1,14 @@
+// Function to convert px to em
+@function em($pixels, $context: $base-font-size) {
+  @return ($pixels / $context) * 1em;
+}
+
+// Function to calculate contrast
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+// Function to darken a color
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

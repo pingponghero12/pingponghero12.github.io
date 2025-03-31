@@ -1,0 +1,10 @@
+footer {
+  background-color: $primary-color;
+  padding: $spacing-medium 0;
+  margin-top: $spacing-xlarge;
+  text-align: center;
+  
+  .footer-content {
+    @include flex-center;
+  }
+}
