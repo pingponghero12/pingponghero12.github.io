@@ -1,0 +1,36 @@
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-medium;
+  margin: $spacing-xlarge 0;
+  
+  .gallery-item {
+    @include box-shadow;
+    border-radius: $border-radius;
+    overflow: hidden;
+    @include transition(transform);
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  .gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .gallery-loading,
+  .gallery-error {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: $spacing-xlarge;
+    font-size: 1.2em;
+  }
+  
+  .gallery-error {
+    color: #ff6b6b;
+  }
+}

@@ -6,6 +6,23 @@
   background-color: $primary-color;
   padding: 0;
   
+  @media (max-width: #{$tablet - 1px}) {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: $primary-color;
+    width: 100%;
+    text-align: center;
+    @include transition(left, 0.3s);
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    
+    &.active {
+      left: 0;
+    }
+  }
+  
   li a {
     display: block;
     padding: $spacing-small $spacing-medium;
@@ -17,11 +34,28 @@
       background-color: rgba(255, 255, 255, 0.2);
       text-decoration: none;
     }
+    
+    @media (max-width: #{$tablet - 1px}) {
+      padding: $spacing-medium;
+      width: 100%;
+    }
   }
   
   @include tablet {
     flex-direction: row;
     justify-content: center;
     gap: $spacing-medium;
+    position: static;
+    box-shadow: none;
+  }
+}
+
+// No-JS fallback
+.no-js .nav-menu {
+  @media (max-width: #{$tablet - 1px}) {
+    position: static;
+    left: auto;
+    flex-direction: column;
+    box-shadow: none;
   }
 }

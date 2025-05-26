@@ -3,4 +3,18 @@ header {
   padding: $spacing-medium 0;
   margin-bottom: $spacing-medium;
   width: 100%;
+  position: relative;
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-medium;
+    
+    @include tablet {
+      justify-content: center;
+    }
+  }
 }

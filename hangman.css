@@ -1,0 +1,235 @@
+/* Hangman Game Styles */
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: rgba(88, 88, 200, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.wrong-guesses {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #f8f8f8;
+}
+
+.game-btn {
+    background-color: rgb(88, 88, 200);
+    color: #f8f8f8;
+    border: none;
+    padding: 0.8em 1.5em;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.game-btn:hover {
+    background-color: rgb(108, 108, 220);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.game-btn:active {
+    transform: translateY(0);
+}
+
+.hangman-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+#hangman-canvas {
+    border: 2px solid #f8f8f8;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+}
+
+.word-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.word-display {
+    display: flex;
+    gap: 0.5em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.letter-box {
+    width: 3em;
+    height: 3em;
+    border: 3px solid #f8f8f8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f8f8f8;
+    background-color: rgba(30, 30, 30, 0.8);
+    transition: all 0.3s ease;
+}
+
+.letter-box.revealed {
+    background-color: rgb(88, 88, 200);
+    border-color: rgb(88, 88, 200);
+    transform: scale(1.1);
+}
+
+.alphabet-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.alphabet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 0.5em;
+    max-width: 600px;
+    width: 100%;
+}
+
+.letter-tile {
+    width: 50px;
+    height: 50px;
+    background-color: #444;
+    color: #f8f8f8;
+    border: 2px solid #666;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.letter-tile:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.letter-tile.selected {
+    background-color: #4285f4;
+    border-color: #4285f4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.letter-tile.correct {
+    background-color: #34a853;
+    border-color: #34a853;
+}
+
+.letter-tile.incorrect {
+    background-color: #ea4335;
+    border-color: #ea4335;
+}
+
+.game-message {
+    text-align: center;
+    padding: 1.5em;
+    border-radius: 8px;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 1em;
+    transition: all 0.3s ease;
+}
+
+.game-message.win {
+    background-color: rgba(52, 168, 83, 0.2);
+    border: 2px solid #34a853;
+    color: #34a853;
+}
+
+.game-message.lose {
+    background-color: rgba(234, 67, 53, 0.2);
+    border: 2px solid #ea4335;
+    color: #ea4335;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 1em;
+        margin: 0 1em;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    #hangman-canvas {
+        width: 250px;
+        height: 290px;
+    }
+    
+    .letter-box {
+        width: 2.5em;
+        height: 2.5em;
+        font-size: 1.2em;
+    }
+    
+    .letter-tile {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+    
+    .alphabet-grid {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        gap: 0.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome h1 {
+        font-size: 2em;
+    }
+    
+    .welcome p {
+        font-size: 0.9em;
+    }
+    
+    .letter-box {
+        width: 2em;
+        height: 2em;
+        font-size: 1em;
+    }
+    
+    .letter-tile {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9em;
+    }
+    
+    #hangman-canvas {
+        width: 200px;
+        height: 240px;
+    }
+}

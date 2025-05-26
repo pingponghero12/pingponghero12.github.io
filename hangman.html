@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game - Manfred Gawlas</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="hangman.css">
+    <script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="cs-interests.html">CS Interests</a></li>
+                <li><a href="other-interests.html">Other Interests</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="hangman.html" class="active">Hangman Game</a></li>
+            </ul>
+        </nav>
+        <button class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+    </div>
+</header>
+
+<main>
+    <section class="welcome">
+        <h1>Hangman Game</h1>
+        <p>Guess the programming-related word before the hangman is complete!</p>
+    </section>
+
+    <div class="game-container">
+        <div class="game-info">
+            <div class="wrong-guesses">Wrong guesses: <span id="wrong-count">0</span>/6</div>
+            <button id="new-game-btn" class="game-btn">New Game</button>
+            <button id="cancel-game-btn" class="game-btn">Cancel Game</button>
+        </div>
+
+        <div class="hangman-container">
+            <canvas id="hangman-canvas" width="300" height="350"></canvas>
+        </div>
+
+        <div class="word-container">
+            <div id="word-display" class="word-display"></div>
+        </div>
+
+        <div class="alphabet-container">
+            <div id="alphabet-grid" class="alphabet-grid"></div>
+        </div>
+
+        <div id="game-message" class="game-message hidden"></div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <a class="github" href="https://github.com/pingponghero12">GitHub</a>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="hangman.js"></script>
+
+</body>
+</html>
