@@ -1,4 +1,3 @@
-/* Hangman Game Styles */
 .game-container {
     max-width: 800px;
     margin: 0 auto;
@@ -33,6 +32,9 @@
     font-size: 1em;
     transition: all 0.3s ease;
     font-weight: bold;
+    min-height: 44px;
+    min-width: 100px;
+    touch-action: manipulation;
 }
 
 .game-btn:hover {
@@ -43,6 +45,7 @@
 
 .game-btn:active {
     transform: translateY(0);
+    background-color: rgb(68, 68, 180);
 }
 
 .hangman-container {
@@ -55,6 +58,13 @@
     border: 2px solid #f8f8f8;
     border-radius: 8px;
     background-color: #1e1e1e;
+    /* Prevent canvas selection on mobile */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .word-container {
@@ -83,6 +93,9 @@
     color: #f8f8f8;
     background-color: rgba(30, 30, 30, 0.8);
     transition: all 0.3s ease;
+    /* Minimum touch target size */
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .letter-box.revealed {
@@ -120,6 +133,15 @@
     font-weight: bold;
     transition: all 0.3s ease;
     user-select: none;
+    min-width: 44px;
+    min-height: 44px;
+    touch-action: manipulation;
+    /* Prevent text selection */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .letter-tile:hover {
@@ -128,11 +150,19 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.letter-tile:active {
+    transform: scale(0.95);
+    background-color: #333;
+}
+
 .letter-tile.selected {
-    background-color: #4285f4;
-    border-color: #4285f4;
     cursor: not-allowed;
     transform: none;
+}
+
+.letter-tile.selected:hover {
+    transform: none;
+    box-shadow: none;
 }
 
 .letter-tile.correct {
@@ -182,6 +212,13 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 1.5em;
+    }
+    
+    .game-btn {
+        padding: 1em 1.5em;
+        font-size: 1.1em;
+        min-width: 120px;
     }
     
     #hangman-canvas {
@@ -193,17 +230,19 @@
         width: 2.5em;
         height: 2.5em;
         font-size: 1.2em;
+        min-width: 40px;
+        min-height: 40px;
     }
     
     .letter-tile {
-        width: 40px;
-        height: 40px;
-        font-size: 1em;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1em;
     }
     
     .alphabet-grid {
-        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
-        gap: 0.3em;
+        grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+        gap: 0.4em;
     }
 }
 
@@ -216,6 +255,11 @@
         font-size: 0.9em;
     }
     
+    .game-container {
+        padding: 0.8em;
+        margin: 0 0.5em;
+    }
+    
     .letter-box {
         width: 2em;
         height: 2em;
@@ -223,13 +267,52 @@
     }
     
     .letter-tile {
-        width: 35px;
-        height: 35px;
-        font-size: 0.9em;
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+    
+    .alphabet-grid {
+        grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+        gap: 0.3em;
     }
     
     #hangman-canvas {
         width: 200px;
         height: 240px;
+    }
+    
+    .game-message {
+        font-size: 1.1em;
+        padding: 1em;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .letter-tile,
+    .letter-box,
+    .game-btn {
+        transition: none;
+    }
+    
+    .letter-tile:hover,
+    .game-btn:hover {
+        transform: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .letter-tile {
+        border-width: 3px;
+    }
+    
+    .letter-box {
+        border-width: 4px;
+    }
+    
+    #hangman-canvas {
+        border-width: 3px;
     }
 }

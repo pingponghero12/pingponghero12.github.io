@@ -86,7 +86,6 @@
         });
     }
     
-    // Copy code functionality (already exists, making it JSLint compliant)
     function copyCodeToClipboard(button) {
         const pre = button.parentElement;
         const code = pre.querySelector('code');
@@ -130,7 +129,7 @@
         document.body.removeChild(textArea);
     }
     
-    // Initialize everything when DOM is loaded
+    // On DOM Load
     function init() {
         initHamburgerMenu();
         initImageGallery();

@@ -1,5 +1,5 @@
 /*jslint browser: true, es6: true */
-/*global console */
+/*global console, localStorage, JSON */
 
 (function () {
     'use strict';
@@ -12,9 +12,20 @@
     let gameOver = false;
     let guessedLetters = new Set();
     
-    // Word bank - programming related words
+    // localStorage key
+    const STORAGE_KEY = 'hangman_game_state';
+    
     const words = [
-        'SKIBIDI', 'RIZZ', 'ELO', 'ZELO', 'RAKIETA', 'SIGMA', 'BETA', 'HELLO', 'THERE', 'OBIWAN', 'KENOBI'
+        'JAVASCRIPT', 'PYTHON', 'COMPUTER', 'PROGRAM', 'FUNCTION',
+        'VARIABLE', 'ARRAY', 'OBJECT', 'METHOD', 'CLASS',
+        'ALGORITHM', 'DATABASE', 'NETWORK', 'SERVER', 'CLIENT',
+        'INTERFACE', 'FRAMEWORK', 'LIBRARY', 'DEBUGGING', 'TESTING',
+        'COMPILER', 'INTERPRETER', 'SYNTAX', 'LOGIC', 'LOOP',
+        'CONDITION', 'RECURSION', 'STACK', 'QUEUE', 'TREE',
+        'GRAPH', 'SORTING', 'SEARCHING', 'BINARY', 'DECIMAL',
+        'HEXADECIMAL', 'BOOLEAN', 'STRING', 'INTEGER', 'FLOAT',
+        'MEMORY', 'PROCESSOR', 'HARDWARE', 'SOFTWARE', 'OPERATING',
+        'SYSTEM', 'WINDOWS', 'LINUX', 'MACOS', 'ANDROID'
     ];
     
     // DOM elements
@@ -26,6 +37,138 @@
     let gameMessage;
     let newGameBtn;
     let cancelGameBtn;
+    
+    // localStorage functions
+    function saveGameState() {
+        if (gameOver) {
+            // Don't save completed games
+            clearGameState();
+            return;
+        }
+        
+        const gameState = {
+            currentWord: currentWord,
+            guessedWord: guessedWord,
+            wrongGuesses: wrongGuesses,
+            guessedLetters: Array.from(guessedLetters),
+            timestamp: Date.now()
+        };
+        
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(gameState));
+        } catch (error) {
+            console.log('Could not save game state:', error);
+        }
+    }
+    
+    function loadGameState() {
+        try {
+            const savedState = localStorage.getItem(STORAGE_KEY);
+            if (!savedState) {
+                return null;
+            }
+            
+            const gameState = JSON.parse(savedState);
+            
+            // Check if the saved game is less than 24 hours old
+            const twentyFourHours = 24 * 60 * 60 * 1000;
+            if (Date.now() - gameState.timestamp > twentyFourHours) {
+                clearGameState();
+                return null;
+            }
+            
+            return gameState;
+        } catch (error) {
+            console.log('Could not load game state:', error);
+            clearGameState();
+            return null;
+        }
+    }
+    
+    function clearGameState() {
+        try {
+            localStorage.removeItem(STORAGE_KEY);
+        } catch (error) {
+            console.log('Could not clear game state:', error);
+        }
+    }
+    
+    function restoreGameState(gameState) {
+        currentWord = gameState.currentWord;
+        guessedWord = gameState.guessedWord;
+        wrongGuesses = gameState.wrongGuesses;
+        guessedLetters = new Set(gameState.guessedLetters);
+        gameOver = false;
+        
+        // Update UI
+        updateWordDisplay();
+        updateWrongGuessCount();
+        updateAlphabetGrid();
+        hideGameMessage();
+        
+        // Redraw canvas
+        drawGallows();
+        for (let i = 1; i <= wrongGuesses; i += 1) {
+            drawHangmanPart(i);
+        }
+        
+        // Check if game should be over
+        checkGameStatus();
+        
+        // Show restoration message
+        showTemporaryMessage('Game restored from previous session!', 'info');
+    }
+    
+    function showTemporaryMessage(message, type) {
+        const tempMessage = document.createElement('div');
+        tempMessage.className = 'temp-message ' + type;
+        tempMessage.textContent = message;
+        tempMessage.style.cssText = `
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(88, 88, 200, 0.9);
+            color: white;
+            padding: 1em 2em;
+            border-radius: 8px;
+            z-index: 1000;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.3s ease;
+        `;
+        
+        document.body.appendChild(tempMessage);
+        
+        setTimeout(function () {
+            tempMessage.style.animation = 'slideUp 0.3s ease';
+            setTimeout(function () {
+                if (tempMessage.parentNode) {
+                    tempMessage.parentNode.removeChild(tempMessage);
+                }
+            }, 300);
+        }, 3000);
+    }
+    
+    function checkGameStatus() {
+        // Check for win
+        if (guessedWord.join('') === currentWord) {
+            gameOver = true;
+            showGameMessage('Congratulations! You won!', 'win');
+            disableAllLetters();
+            clearGameState();
+            return;
+        }
+        
+        // Check for loss
+        if (wrongGuesses >= maxWrongGuesses) {
+            gameOver = true;
+            showGameMessage('Game Over! The word was: ' + currentWord, 'lose');
+            disableAllLetters();
+            clearGameState();
+            return;
+        }
+    }
     
     // Initialize the game
     function initHangmanGame() {
@@ -52,8 +195,48 @@
         newGameBtn.addEventListener('click', startNewGame);
         cancelGameBtn.addEventListener('click', cancelGame);
         
-        // Start the first game
-        startNewGame();
+        // Try to restore previous game state
+        const savedState = loadGameState();
+        if (savedState) {
+            restoreGameState(savedState);
+        } else {
+            startNewGame();
+        }
+        
+        addTempMessageStyles();
+    }
+    
+    function addTempMessageStyles() {
+        if (document.getElementById('temp-message-styles')) {
+            return;
+        }
+        
+        const style = document.createElement('style');
+        style.id = 'temp-message-styles';
+        style.textContent = `
+            @keyframes slideDown {
+                from {
+                    transform: translateX(-50%) translateY(-100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(-50%) translateY(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideUp {
+                from {
+                    transform: translateX(-50%) translateY(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(-50%) translateY(-100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
     }
     
     function setupCanvas() {
@@ -62,7 +245,6 @@
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
         
-        // Draw gallows base
         drawGallows();
     }
     
@@ -148,10 +330,38 @@
             const tile = document.createElement('div');
             tile.className = 'letter-tile';
             tile.textContent = letter;
+            
+            // Add both click and touch events for better mobile support
             tile.addEventListener('click', function () {
                 handleLetterGuess(letter, tile);
             });
+            
+            // Add touch support for mobile devices
+            tile.addEventListener('touchstart', function (e) {
+                e.preventDefault(); // Prevent double-tap zoom
+                handleLetterGuess(letter, tile);
+            });
+            
             alphabetGrid.appendChild(tile);
+        });
+    }
+    
+    function updateAlphabetGrid() {
+        const tiles = alphabetGrid.querySelectorAll('.letter-tile');
+        
+        tiles.forEach(function (tile) {
+            const letter = tile.textContent;
+            tile.className = 'letter-tile';
+            
+            if (guessedLetters.has(letter)) {
+                tile.classList.add('selected');
+                
+                if (currentWord.includes(letter)) {
+                    tile.classList.add('correct');
+                } else {
+                    tile.classList.add('incorrect');
+                }
+            }
         });
     }
     
@@ -170,6 +380,10 @@
         hideGameMessage();
         drawGallows();
         
+        // Clear any previous saved state and save new game
+        clearGameState();
+        saveGameState();
+        
         console.log('New game started. Word:', currentWord); // For debugging
     }
     
@@ -181,6 +395,7 @@
         gameOver = true;
         showGameMessage('Game cancelled! The word was: ' + currentWord, 'lose');
         disableAllLetters();
+        clearGameState();
     }
     
     function handleLetterGuess(letter, tile) {
@@ -209,6 +424,9 @@
                 gameOver = true;
                 showGameMessage('Congratulations! You won!', 'win');
                 disableAllLetters();
+                clearGameState();
+            } else {
+                saveGameState();
             }
         } else {
             // Wrong guess
@@ -222,6 +440,9 @@
                 gameOver = true;
                 showGameMessage('Game Over! The word was: ' + currentWord, 'lose');
                 disableAllLetters();
+                clearGameState();
+            } else {
+                saveGameState();
             }
         }
     }
